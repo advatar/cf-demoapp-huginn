@@ -2,7 +2,7 @@
 applications:
 - name: agent
   host: agent
-  domain: cfapps.io
+  domain: cfs2.esp-test.egi.ericsson.com
   path: .
   memory: 512M
   command: nohup foreman start --procfile Procfile.CF >>$DROPLET_BASE_DIR/logs/stdout.log 2>>$DROPLET_BASE_DIR/logs/stdout.log
@@ -11,8 +11,8 @@ applications:
     APP_SECRET_TOKEN: "${random-word}${random-word}${random-word}${random-word}${random-word}${random-word}${random-word}${random-word}"
     INVITATION_CODE: "welcome"
   services:
-    $agent-huginn-mysql:
-      label: cleardb
-      provider: cleardb
-      version: n/a
-      plan: spark
+     mysql-72e3b:
+      label: mysql
+      provider: core
+      version: '5.5'
+      plan: default
